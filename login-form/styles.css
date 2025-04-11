@@ -1,0 +1,158 @@
+:root {
+  --color-tan: rgba(194, 189, 166, 1);
+  --color-brown: rgba(72, 70, 61, 1);
+  --color-brown25: rgba(72, 70, 61, .25);
+  --color-brown15: rgba(72, 70, 61, .15);
+  --color-brown025: rgba(72, 70, 61, .025);
+  --color-darkBrown: rgba(69, 67, 58, 1);
+}
+
+@font-face {
+  font-family: "Rodin";
+  src: url("rodin.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 0;
+  height: calc(100vh - 60px);
+  font-family: Arial, sans-serif;
+  color: var(--color-brown);
+  background-color: var(--color-tan);
+  position: relative;
+  background-image:    
+    url("nier-bg.svg"),
+    linear-gradient(var(--color-brown025) 2px, transparent 2px),
+    linear-gradient(90deg, var(--color-brown025) 2px, transparent 2px);
+  background-size: 125%, 125%, 6px 6px, 6px 6px;
+  background-position: center center;
+  background-repeat: no-repeat, repeat, repeat;
+  margin: 30px 0;
+  padding: 60px 0;
+  
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background: url("nier-border.svg") repeat-x;
+    background-size: contain;
+  }
+  
+  &:after {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+  position: relative;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+.form-container {
+  width: 100%;
+  margin-top: 120px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+form input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
